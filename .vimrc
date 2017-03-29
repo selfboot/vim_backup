@@ -4,7 +4,7 @@ set ignorecase smartcase        " the case of normal letters is ignored
 set showmode                    " show the mode
 set history=1000
 set showcmd
-set mouse=a 			    	" use mouse
+"set mouse=a 			    	" use mouse
 set number                      " display line number
 set hls                         " highlight the words match the search pattern
 set nocompatible                " shutdown the vi compatibility mode
@@ -32,6 +32,9 @@ set expandtab
 " set tags=~/AdvanPro/tags      " tags directory
 " set helplang=cn               " Chinese help document
 " set helplang=en
+
+" sudo 保存命令的 alias
+command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 filetype on      		     	" enables filetype detection
 filetype plugin on              " enables filetype plugin

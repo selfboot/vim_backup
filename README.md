@@ -1,4 +1,4 @@
-Vim 配置文件，使用[vundle](https://github.com/VundleVim/Vundle.vim)来管理插件。
+本仓库为 Vim 配置文件，这里使用[vundle](https://github.com/VundleVim/Vundle.vim)来管理插件。
 
 # 初始化vim配置
 
@@ -11,14 +11,14 @@ $ ln -s `pwd`/.vimrc ~/.vimrc
 $ git submodule init	
 $ git submodule update
 ```
- 
+
 要更新 vundle，只需要进入 `~/.vim/bundle/Vundle.vim/`目录，然后运行
 
 ```
 $ git checkout master; git pull
 ```
 
-# 其他插件管理
+# 插件管理命令
 
 打开vim, 运行下列命令：
 
@@ -27,6 +27,23 @@ $ git checkout master; git pull
 * 清除不再使用的插件:    BundleClean
 * 列出所有插件: BundleList
 * 查找插件: BundleSearch
+
+# 其他问题
+
+## root vim
+
+如果以非root运行vim，那么会从 `/home/<user>` 读取配置文件。如果以 `sudo vim filename` 来运行vim的话，会从 `/root`读取配置。为了使 root 用户也使用某个用户的 vim 配置，可以使用下面的方式创建软链接。
+
+```
+sudo ln -s /home/<user>/.vimrc /root/.vimrc
+sudo ln -s /home/<user>/.vim/ /root/.vim/
+```
+
+注意替换 `<user>` 为自己的用户。当然也可以不用 sudo 来执行 vim，在最后保存的时候，用下面 vim 命令（配置文件中添加Sw为 `:w !sudo tee % > /dev/null` 的alias）。
+
+```
+:Sw
+```
 
 # 参考  
 
